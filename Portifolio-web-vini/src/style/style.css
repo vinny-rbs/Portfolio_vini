@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --color-dark: #161513;
+    --color-dark-min: #1e1e1d;
+    --color-gray: #a3a3a3;
+    --color-light: #e4e4e4;
+    --color-purble: #8338ec;
+    --color-pink: #f72585;
+    --max-width: 55em;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+html,body {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
+.header {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-dark-min);
+}
+
+.nav {
+    position: fixed;
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    z-index: -1;
+}
+
+.logo__name {
+    font-size: 2rem;
+}
+
+.logo__name--reffer {
+    color: var(--color-purble);
+}
+
+.nav__menu_btn {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.nav__links {
+    position: absolute;
+    top: 100%;
+    left: -5%;
+    width: 104vw;
+    padding: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2em;
+    background-color: var(--color-dark-min);
+    transition: 0.5s;
+    color: var(--color-gray);
+    transform: translateY(-100%);
+}
+
+.nav__links.open {
+    transform: translateY(0);
+}
+
+.nav__links a {
+    position: relative;
+    padding: 5px;
+}
+
+.nav__links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-light);
+    transform: scaleX(0);
+    transition: 0.5s;
+}
+
+.nav__links a:hover {
+    color: var(--color-light);
+}
+
+.nav__links a:hover::after {
+    transform: scaleX(1);
+}
+
+@media (width > 1200px) {
+
+    .header {
+        position: relative;
+    }
+
+    #menu-btn {
+        display: none;
+    }
+
+    .nav {
+        position: static;
+        z-index: 0;
+    }
+
+    .nav__links {
+        position: absolute;
+        top: 125%;
+        left: 0%;
+        width: 100vw;
+        padding: 3em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 2em;
+        background-color: transparent;
+        transition: 0.5s;
+        color: var(--color-gray);
+        transform: translateY(-100%);
+    }
+}
